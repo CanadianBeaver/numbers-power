@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Имя Фамилия — Нумерология и системные расстановки</title>
+  <meta name="description" content="Индивидуальные нумерологические разборы и системные расстановки. Поиск точек опоры, работа с родовыми сценариями и личной стратегией." />
+  
+  <!-- Шрифты для эстетики современной эзотерики -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-primary: #0b0e17;
+      --bg-card: #121726;
+      --text-main: #f3efe6;
+      --text-muted: #9ca3af;
+      --gold: #d4af37;
+      --gold-soft: rgba(212, 175, 55, 0.2);
+      --border: rgba(212, 175, 55, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-primary);
+      background-image: 
+        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 85% 80%, rgba(45, 55, 105, 0.25) 0%, transparent 50%);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      line-height: 1.65;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    /* Заголовки */
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+
+    /* Шапка / Hero-блок */
+    .hero {
+      text-align: center;
+      padding: 20px 0 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .avatar-wrap {
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 24px;
+      border-radius: 50%;
+      padding: 5px;
+      border: 1px solid var(--gold);
+      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+    }
+
+    .avatar-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+      display: block;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.2rem);
+      line-height: 1.15;
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      max-width: 560px;
+      margin: 0 auto 28px;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    /* Кнопки */
+    .actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 13px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      letter-spacing: 0.04em;
+      transition: all 0.25s ease;
+    }
+
+    .btn-primary {
+      background: var(--gold);
+      color: #0b0e17;
+      font-weight: 500;
+    }
+
+    .btn-primary:hover {
+      background: #e5c354;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+    }
+
+    .btn-outline {
+      border: 1px solid var(--border);
+      color: var(--text-main);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    /* Секция услуг */
+    .section {
+      padding: 48px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 32px;
+      color: var(--text-main);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px;
+      transition: transform 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--gold);
+    }
+
+    .card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--gold);
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+    }
+
+    .card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 18px;
+    }
+
+    .card ul {
+      list-style: none;
+      font-size: 0.9rem;
+      color: var(--text-main);
+    }
+
+    .card ul li {
+      padding-left: 18px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+
+    .card ul li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-size: 0.75rem;
+    }
+
+    /* Блок с иллюстрацией о подходе */
+    .approach {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .approach img {
+      width: 100%;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      display: block;
+    }
+
+    .approach-text h2 {
+      font-size: 1.9rem;
+      margin-bottom: 14px;
+    }
+
+    .approach-text p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+      margin-bottom: 12px;
+    }
+
+    @media (max-width: 640px) {
+      .approach {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Подвал и соцсети */
+    .footer {
+      padding-top: 40px;
+      text-align: center;
+    }
+
+    .socials {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 20px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: var(--gold);
+      text-decoration: none;
+      font-size: 0.95rem;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s;
+    }
+
+    .socials a:hover {
+      border-bottom-color: var(--gold);
+    }
+
+    .copyright {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+    <!-- Первый экран -->
+    <header class="hero">
+      <div class="avatar-wrap">
+        <img src="images/hero-numerology.jpg" alt="Нумерология и системные расстановки">
+      </div>
+      <span class="tag">Нумерология &bull; Системные расстановки</span>
+      <h1>Имя Фамилия</h1>
+      <p>
+        Помогаю увидеть скрытые закономерности в дате рождения и родовой системе, 
+        чтобы выйти из повторяющихся сценариев и опереться на свою внутреннюю силу.
+      </p>
+      <div class="actions">
+        <a href="https://t.me/ваш_никнейм" target="_blank" class="btn btn-primary">Записаться в Telegram</a>
+        <a href="#services" class="btn btn-outline">Форматы работы</a>
+      </div>
+    </header>
+
+    <!-- Направления работы -->
+    <section id="services" class="section">
+      <h2 class="section-title">Направления и форматы</h2>
+      <div class="grid">
+        <article class="card">
+          <div class="card-num">01 / Матрица и числа</div>
+          <h3>Нумерологический разбор</h3>
+          <p>Глубокий анализ личного потенциала, природных талантов, финансовых точек роста и текущих жизненных циклов.</p>
+          <ul>
+            <li>Карта личности и предназначения</li>
+            <li>Совместимость в паре и партнерстве</li>
+            <li>Прогностика ключевых периодов года</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-num">02 / Поле и род</div>
+          <h3>Системные расстановки</h3>
+          <p>Бережная работа с бессознательными динамиками, семейными переплетениями и внутренними конфликтами.</p>
+          <ul>
+            <li>Отношения и повторяющиеся сценарии</li>
+            <li>Денежные блоки и проявленность</li>
+            <li>Индивидуальные онлайн-сессии</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <!-- О подходе -->
+    <section class="section">
+      <div class="approach">
+        <img src="images/about-constellations.jpg" alt="Системные связи и гармония">
+        <div class="approach-text">
+          <h2>Синтез точности и глубины</h2>
+          <p>
+            Нумерология подсвечивает «карту местности» — с какими задачами и ресурсами вы пришли. 
+            Расстановки позволяют бережно распутать узлы, которые мешают двигаться по этому пути свободно.
+          </p>
+          <p>
+            Без фатализма и сложных терминов — только ясные смыслы и практические шаги для вашей жизни.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Контакты -->
+    <footer class="footer">
+      <div class="socials">
+        <a href="https://t.me/ваш_никнейм" target="_blank">Telegram</a>
+        <a href="https://instagram.com/ваш_никнейм" target="_blank">Instagram</a>
+        <a href="https://wa.me/79000000000" target="_blank">WhatsApp</a>
+      </div>
+      <p class="copyright">&copy; 2026 Имя Фамилия. Все права защищены.</p>
+    </footer>
+  </main>
+
+</body>
+</html>
