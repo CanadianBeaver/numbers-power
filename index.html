@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Имя Фамилия — Нумерология и системные расстановки</title>
+  <title>Ксения Мартин — Нумерология и системные расстановки</title>
   <meta name="description" content="Индивидуальные нумерологические разборы и системные расстановки. Поиск точек опоры, работа с родовыми сценариями и личной стратегией." />
   
   <!-- Шрифты для эстетики современной эзотерики -->
@@ -13,13 +13,13 @@
 
   <style>
     :root {
-      --bg-primary: #0b0e17;
-      --bg-card: #121726;
-      --text-main: #f3efe6;
-      --text-muted: #9ca3af;
-      --gold: #d4af37;
-      --gold-soft: rgba(212, 175, 55, 0.2);
-      --border: rgba(212, 175, 55, 0.25);
+      --bg-primary: #f6f2eb;
+      --bg-card: #fcfaf7;
+      --text-main: #2d2926;
+      --text-muted: #6e6761;
+      --gold: #a68246;
+      --gold-soft: rgba(166, 130, 70, 0.12);
+      --border: rgba(166, 130, 70, 0.25);
     }
 
     * {
@@ -31,8 +31,8 @@
     body {
       background-color: var(--bg-primary);
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.06) 0%, transparent 40%),
-        radial-gradient(circle at 85% 80%, rgba(45, 55, 105, 0.25) 0%, transparent 50%);
+        radial-gradient(circle at 15% 15%, rgba(226, 207, 181, 0.45) 0%, transparent 45%),
+        radial-gradient(circle at 85% 80%, rgba(215, 222, 218, 0.5) 0%, transparent 50%);
       color: var(--text-main);
       font-family: 'Inter', sans-serif;
       font-weight: 300;
@@ -51,7 +51,7 @@
     /* Заголовки */
     h1, h2, h3 {
       font-family: 'Cormorant Garamond', serif;
-      font-weight: 500;
+      font-weight: 600;
       letter-spacing: 0.02em;
     }
 
@@ -69,7 +69,8 @@
       border-radius: 50%;
       padding: 5px;
       border: 1px solid var(--gold);
-      box-shadow: 0 0 30px rgba(212, 175, 55, 0.15);
+      background-color: var(--bg-card);
+      box-shadow: 0 10px 30px rgba(166, 130, 70, 0.12);
     }
 
     .avatar-wrap img {
@@ -86,13 +87,22 @@
       text-transform: uppercase;
       letter-spacing: 0.18em;
       color: var(--gold);
+      font-weight: 500;
       margin-bottom: 12px;
     }
 
     .hero h1 {
       font-size: clamp(2.2rem, 5vw, 3.2rem);
       line-height: 1.15;
-      margin-bottom: 16px;
+      margin-bottom: 12px;
+    }
+
+    .slogan {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.25rem;
+      color: var(--gold);
+      margin-bottom: 20px;
     }
 
     .hero p {
@@ -122,19 +132,20 @@
 
     .btn-primary {
       background: var(--gold);
-      color: #0b0e17;
-      font-weight: 500;
+      color: #fcfaf7;
+      font-weight: 400;
     }
 
     .btn-primary:hover {
-      background: #e5c354;
+      background: #916f37;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(212, 175, 55, 0.25);
+      box-shadow: 0 8px 24px rgba(166, 130, 70, 0.2);
     }
 
     .btn-outline {
       border: 1px solid var(--border);
       color: var(--text-main);
+      background: rgba(252, 250, 247, 0.6);
     }
 
     .btn-outline:hover {
@@ -166,6 +177,7 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
+      box-shadow: 0 4px 20px rgba(45, 41, 38, 0.03);
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
@@ -225,6 +237,7 @@
       width: 100%;
       border-radius: 16px;
       border: 1px solid var(--border);
+      box-shadow: 0 8px 24px rgba(45, 41, 38, 0.06);
       display: block;
     }
 
@@ -263,6 +276,7 @@
       color: var(--gold);
       text-decoration: none;
       font-size: 0.95rem;
+      font-weight: 400;
       border-bottom: 1px solid transparent;
       transition: border-color 0.2s;
     }
@@ -283,10 +297,11 @@
     <!-- Первый экран -->
     <header class="hero">
       <div class="avatar-wrap">
-        <img src="images/hero-numerology.jpg" alt="Нумерология и системные расстановки">
+        <img src="images/hero-numerology.jpg" alt="Ксения Мартин — Нумерология и системные расстановки">
       </div>
       <span class="tag">Нумерология &bull; Системные расстановки</span>
-      <h1>Имя Фамилия</h1>
+      <h1>Ксения Мартин</h1>
+      <div class="slogan">Без магии — только работающие сценарии</div>
       <p>
         Помогаю увидеть скрытые закономерности в дате рождения и родовой системе, 
         чтобы выйти из повторяющихся сценариев и опереться на свою внутреннюю силу.
@@ -349,7 +364,7 @@
         <a href="https://instagram.com/ваш_никнейм" target="_blank">Instagram</a>
         <a href="https://wa.me/79000000000" target="_blank">WhatsApp</a>
       </div>
-      <p class="copyright">&copy; 2026 Имя Фамилия. Все права защищены.</p>
+      <p class="copyright">&copy; 2026 Ксения Мартин. Все права защищены.</p>
     </footer>
   </main>
 
