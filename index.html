@@ -6,20 +6,20 @@
   <title>Ксения Мартин — Нумерология и системные расстановки</title>
   <meta name="description" content="Индивидуальные нумерологические разборы и системные расстановки. Поиск точек опоры, работа с родовыми сценариями и личной стратегией." />
   
-  <!-- Шрифты для эстетики современной эзотерики -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 
   <style>
     :root {
-      --bg-primary: #f6f2eb;
-      --bg-card: #fcfaf7;
-      --text-main: #2d2926;
-      --text-muted: #6e6761;
-      --gold: #a68246;
-      --gold-soft: rgba(166, 130, 70, 0.12);
-      --border: rgba(166, 130, 70, 0.25);
+      --bg-primary: #edf2ed;
+      --bg-card: rgba(250, 252, 250, 0.88);
+      --text-main: #232b24;
+      --text-muted: #5a665c;
+      --gold: #8c7344;
+      --sage-accent: #687f6b;
+      --gold-soft: rgba(140, 115, 68, 0.12);
+      --border: rgba(104, 127, 107, 0.25);
     }
 
     * {
@@ -31,8 +31,8 @@
     body {
       background-color: var(--bg-primary);
       background-image: 
-        radial-gradient(circle at 15% 15%, rgba(226, 207, 181, 0.45) 0%, transparent 45%),
-        radial-gradient(circle at 85% 80%, rgba(215, 222, 218, 0.5) 0%, transparent 50%);
+        radial-gradient(circle at 18% 12%, rgba(203, 219, 204, 0.55) 0%, transparent 48%),
+        radial-gradient(circle at 82% 85%, rgba(218, 224, 207, 0.6) 0%, transparent 52%);
       color: var(--text-main);
       font-family: 'Inter', sans-serif;
       font-weight: 300;
@@ -41,11 +41,44 @@
       display: flex;
       justify-content: center;
       padding: 40px 20px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Фоновый слой с Древом Жизни и случайными цифрами */
+    .bg-decor {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .tree-of-life {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: min(760px, 95vw);
+      height: auto;
+      opacity: 0.13;
+      color: var(--sage-accent);
+    }
+
+    .floating-num {
+      position: absolute;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--sage-accent);
+      user-select: none;
+      transition: transform 0.2s ease-out;
     }
 
     .container {
       max-width: 760px;
       width: 100%;
+      position: relative;
+      z-index: 1;
     }
 
     /* Заголовки */
@@ -70,7 +103,7 @@
       padding: 5px;
       border: 1px solid var(--gold);
       background-color: var(--bg-card);
-      box-shadow: 0 10px 30px rgba(166, 130, 70, 0.12);
+      box-shadow: 0 10px 30px rgba(85, 107, 88, 0.12);
     }
 
     .avatar-wrap img {
@@ -132,20 +165,21 @@
 
     .btn-primary {
       background: var(--gold);
-      color: #fcfaf7;
+      color: #fafcfa;
       font-weight: 400;
     }
 
     .btn-primary:hover {
-      background: #916f37;
+      background: #766037;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(166, 130, 70, 0.2);
+      box-shadow: 0 8px 24px rgba(140, 115, 68, 0.22);
     }
 
     .btn-outline {
       border: 1px solid var(--border);
       color: var(--text-main);
-      background: rgba(252, 250, 247, 0.6);
+      background: rgba(250, 252, 250, 0.65);
+      backdrop-filter: blur(4px);
     }
 
     .btn-outline:hover {
@@ -174,10 +208,11 @@
 
     .card {
       background: var(--bg-card);
+      backdrop-filter: blur(6px);
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px;
-      box-shadow: 0 4px 20px rgba(45, 41, 38, 0.03);
+      box-shadow: 0 4px 20px rgba(35, 43, 36, 0.04);
       transition: transform 0.25s ease, border-color 0.25s ease;
     }
 
@@ -237,7 +272,7 @@
       width: 100%;
       border-radius: 16px;
       border: 1px solid var(--border);
-      box-shadow: 0 8px 24px rgba(45, 41, 38, 0.06);
+      box-shadow: 0 8px 24px rgba(35, 43, 36, 0.06);
       display: block;
     }
 
@@ -255,6 +290,9 @@
     @media (max-width: 640px) {
       .approach {
         grid-template-columns: 1fr;
+      }
+      .floating-num {
+        opacity: 0.09 !important;
       }
     }
 
@@ -292,6 +330,61 @@
   </style>
 </head>
 <body>
+
+  <!-- Фоновый декор: Древо Жизни + контейнер для чисел -->
+  <div class="bg-decor" id="bgDecor" aria-hidden="true">
+    <svg class="tree-of-life" viewBox="0 0 600 800" fill="none" stroke="currentColor" stroke-width="1.4">
+      <!-- Внешний сакральный контур -->
+      <circle cx="300" cy="400" r="360" stroke-dasharray="4 6" opacity="0.5"/>
+      <circle cx="300" cy="400" r="320" opacity="0.4"/>
+
+      <!-- Пути (соединительные линии сефир) -->
+      <g opacity="0.75">
+        <!-- Центральный столб -->
+        <line x1="300" y1="90" x2="300" y2="710" />
+        <!-- Левый столб -->
+        <line x1="160" y1="190" x2="160" y2="510" />
+        <!-- Правый столб -->
+        <line x1="440" y1="190" x2="440" y2="510" />
+        <!-- Горизонтальные связи -->
+        <line x1="160" y1="190" x2="440" y2="190" />
+        <line x1="160" y1="350" x2="440" y2="350" />
+        <line x1="160" y1="510" x2="440" y2="510" />
+        <!-- Диагональные связи -->
+        <line x1="300" y1="90" x2="160" y2="190" />
+        <line x1="300" y1="90" x2="440" y2="190" />
+        <line x1="160" y1="190" x2="300" y2="350" />
+        <line x1="440" y1="190" x2="300" y2="350" />
+        <line x1="160" y1="350" x2="300" y2="510" />
+        <line x1="440" y1="350" x2="300" y2="510" />
+        <line x1="300" y1="350" x2="160" y2="510" />
+        <line x1="300" y1="350" x2="440" y2="510" />
+        <line x1="160" y1="510" x2="300" y2="610" />
+        <line x1="440" y1="510" x2="300" y2="610" />
+        <line x1="300" y1="610" x2="300" y2="710" />
+        <line x1="160" y1="510" x2="300" y2="710" />
+        <line x1="440" y1="510" x2="300" y2="710" />
+      </g>
+
+      <!-- 10 Сфер (Сефирот) + Даат -->
+      <g fill="#edf2ed" stroke="currentColor" stroke-width="1.6">
+        <circle cx="300" cy="90" r="24" />
+        <circle cx="160" cy="190" r="24" />
+        <circle cx="440" cy="190" r="24" />
+        <circle cx="300" cy="240" r="18" stroke-dasharray="3 3" />
+        <circle cx="160" cy="350" r="24" />
+        <circle cx="440" cy="350" r="24" />
+        <circle cx="300" cy="350" r="26" />
+        <circle cx="160" cy="510" r="24" />
+        <circle cx="440" cy="510" r="24" />
+        <circle cx="300" cy="610" r="24" />
+        <circle cx="300" cy="710" r="24" />
+      </g>
+
+      <!-- Корни и ветви (стилизованная органика внутри геометрии) -->
+      <path d="M300 710 Q250 755 190 770 M300 710 Q350 755 410 770 M300 90 Q245 45 185 35 M300 90 Q355 45 415 35" stroke-linecap="round" opacity="0.6"/>
+    </svg>
+  </div>
 
   <main class="container">
     <!-- Первый экран -->
@@ -367,6 +460,61 @@
       <p class="copyright">&copy; 2026 Ксения Мартин. Все права защищены.</p>
     </footer>
   </main>
+
+  <script>
+    // Генерация случайных чисел по левому и правому краям экрана
+    (function () {
+      const decor = document.getElementById('bgDecor');
+      const pool = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '11', '22', '33', '0', '7', '9', '12'];
+      const countPerSide = 12;
+
+      function createNumber(side, index) {
+        const el = document.createElement('span');
+        el.className = 'floating-num';
+        el.textContent = pool[Math.floor(Math.random() * pool.length)];
+
+        // Равномерное распределение по высоте с небольшим случайным сдвигом
+        const top = ((index + 0.5) / countPerSide) * 92 + (Math.random() * 6 - 3);
+        // Размещение строго в боковых полях (2% - 16% от края), чтобы не перекрывать текст
+        const horizontalOffset = (2 + Math.random() * 14).toFixed(1);
+
+        el.style.top = `${top.toFixed(1)}%`;
+        if (side === 'left') {
+          el.style.left = `${horizontalOffset}%`;
+        } else {
+          el.style.right = `${horizontalOffset}%`;
+        }
+
+        const size = (1.1 + Math.random() * 1.6).toFixed(2);
+        const opacity = (0.12 + Math.random() * 0.16).toFixed(2);
+        const rotate = Math.floor(Math.random() * 24 - 12);
+
+        el.style.fontSize = `${size}rem`;
+        el.style.opacity = opacity;
+        el.dataset.rotate = rotate;
+        el.dataset.speed = (0.04 + Math.random() * 0.08).toFixed(3);
+        el.style.transform = `rotate(${rotate}deg)`;
+
+        decor.appendChild(el);
+        return el;
+      }
+
+      const nodes = [];
+      for (let i = 0; i < countPerSide; i++) {
+        nodes.push(createNumber('left', i));
+        nodes.push(createNumber('right', i));
+      }
+
+      // Легкое параллакс-движение цифр при прокрутке страницы
+      window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        nodes.forEach((el) => {
+          const offset = scrollY * parseFloat(el.dataset.speed);
+          el.style.transform = `translateY(${-offset.toFixed(1)}px) rotate(${el.dataset.rotate}deg)`;
+        });
+      }, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>
